@@ -3,205 +3,128 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pinoy Invest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PINOY PLAY | Reymart Villato</title>
 <style>
-:root{--bg:#0b1110;--panel:#14201a;--line:#304438;--gold:#e4c86f;--text:#f6f6f1;--muted:#a6b4aa}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
-header{padding:18px 20px;background:#111b16;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{font-size:23px;font-weight:800;color:var(--gold)}
-.logo span{color:white}
-.demo{font-size:11px;color:#ffe6a0;background:#3c3218;padding:8px 10px;border-radius:7px}
-.layout{max-width:1100px;margin:auto;padding:18px}
-.welcome{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-h1{font-size:25px;margin-bottom:5px}
-h2{font-size:19px;margin-top:25px}
-p{color:var(--muted);line-height:1.5}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px;margin:12px 0}
-.label{font-size:13px;color:var(--muted)}
-.amount{font-size:28px;font-weight:bold;color:var(--gold);margin:12px 0}
-.stat{font-size:22px;font-weight:bold;margin-top:10px}
-button{cursor:pointer;border:0;border-radius:9px;padding:12px 15px;font-weight:bold;margin:4px 2px}
-.gold{background:var(--gold);color:#172016}
-.dark{background:#2a3d30;color:white;border:1px solid #435b49}
-input,select{width:100%;padding:12px;margin:7px 0;background:#0b1310;color:white;border:1px solid #43584a;border-radius:8px}
-.plan{display:flex;flex-direction:column;align-items:flex-start}
-.plan button{margin-top:auto}
-.tag{font-size:11px;background:#25372a;color:#bce5bd;border-radius:5px;padding:6px 8px}
-table{width:100%;border-collapse:collapse;font-size:13px}
-td,th{text-align:left;padding:12px 6px;border-bottom:1px solid var(--line)}
-th{color:var(--muted)}
-.notice{border-left:3px solid var(--gold);padding:10px 13px;background:#1c241b;border-radius:5px}
-footer{text-align:center;color:#7e9184;padding:25px;font-size:12px}
-@media(max-width:450px){.amount{font-size:24px}.layout{padding:12px}}
+body{margin:0;background:#0b0b0b;color:white;font-family:Arial,sans-serif}
+header{padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:#111;position:sticky;top:0;z-index:5}
+.logo{font-size:25px;font-weight:bold;color:#e50914}
+.creator{font-size:11px;color:#aaa;margin-top:5px}
+input,select{background:#222;color:white;border:1px solid #444;padding:11px;border-radius:7px;max-width:100%}
+main{padding:20px 5%}
+.hero{padding:35px 22px;border-radius:12px;background:linear-gradient(90deg,#171717,#303030,#101010);margin-bottom:25px}
+.hero h1{font-size:36px;margin:8px 0}
+.hero p{color:#ccc;line-height:1.5}
+button{border:0;border-radius:6px;padding:11px 15px;cursor:pointer;font-weight:bold}
+.red{background:#e50914;color:white}
+.section{margin:24px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:15px}
+.movie{background:#181818;border-radius:9px;overflow:hidden;cursor:pointer;transition:.2s}
+.movie:hover{transform:scale(1.03)}
+.poster{height:180px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-size:19px;font-weight:bold;background:linear-gradient(145deg,#4b134f,#111,#8f1515)}
+.movie h3{font-size:14px;margin:10px 10px 5px}
+.movie p{font-size:12px;color:#aaa;margin:0 10px 12px}
+.player{display:none;margin:20px 0;background:#181818;padding:15px;border-radius:10px}
+video{width:100%;max-height:480px;background:#000}
+.small{font-size:12px;color:#aaa;line-height:1.6}
+footer{padding:25px;text-align:center;background:#111;color:#aaa;font-size:12px}
+@media(max-width:480px){header{padding:14px;gap:10px} .logo{font-size:21px}main{padding:15px}.hero h1{font-size:29px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.poster{height:155px}}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">PINOY <span>INVEST</span></div>
-  <div class="demo">PROTOTYPE · VIRTUAL FUNDS ONLY</div>
+  <div>
+    <div class="logo">▶ PINOY PLAY</div>
+    <div class="creator">Created by Reymart Villato</div>
+  </div>
+  <input id="search" placeholder="Search videos..." oninput="render()" aria-label="Search videos">
 </header>
 
-<main class="layout">
-  <div class="welcome">
-    <div>
-      <h1>My Dashboard</h1>
-      <p>Welcome to your investment platform prototype.</p>
-    </div>
-    <span class="tag">ACCOUNT: DEMO</span>
+<main>
+  <section class="hero">
+    <p>WELCOME TO</p>
+    <h1>PINOY PLAY</h1>
+    <p>Your place for free movies, classic cinema and public-domain videos.</p>
+    <button class="red" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">▶ Explore Videos</button>
+  </section>
+
+  <div class="section">
+    <label for="category">Choose category: </label>
+    <select id="category" onchange="render()">
+      <option value="All">All Videos</option>
+      <option value="Classic">Classic Movies</option>
+      <option value="Animation">Animation</option>
+      <option value="Documentary">Documentary</option>
+      <option value="Nature">Nature</option>
+    </select>
   </div>
 
-  <section class="grid">
-    <div class="card">
-      <div class="label">Virtual account balance</div>
-      <div class="amount" id="balance">₱10,000.00</div>
-      <p class="label">Practice credits only — not withdrawable cash.</p>
-    </div>
-    <div class="card">
-      <div class="label">Demo investments</div>
-      <div class="stat" id="invested">₱0.00</div>
-      <p class="label">Virtual amount allocated to sample plans.</p>
-    </div>
-    <div class="card">
-      <div class="label">Illustrative result</div>
-      <div class="stat" id="profit">₱0.00</div>
-      <p class="label">No actual profit has been earned.</p>
-    </div>
+  <section class="player" id="player">
+    <h2 id="playingTitle">Video Player</h2>
+    <video id="video" controls playsinline></video>
+    <p id="videoInfo" class="small"></p>
+    <button onclick="closePlayer()">Close Player</button>
   </section>
 
-  <h2>Investment plans</h2>
-  <p>Sample plans for interface testing. No real investment or return is offered.</p>
-  <section class="grid">
-    <div class="card plan">
-      <span class="tag">STARTER</span>
-      <h3>Basic Plan</h3>
-      <p>Practice amount: ₱1,000</p>
-      <p>Example duration: 7 days</p>
-      <button class="gold" onclick="choosePlan('Basic Plan',1000)">Try plan</button>
-    </div>
-    <div class="card plan">
-      <span class="tag">GROWTH</span>
-      <h3>Growth Plan</h3>
-      <p>Practice amount: ₱3,000</p>
-      <p>Example duration: 14 days</p>
-      <button class="gold" onclick="choosePlan('Growth Plan',3000)">Try plan</button>
-    </div>
-    <div class="card plan">
-      <span class="tag">PREMIUM</span>
-      <h3>Premium Plan</h3>
-      <p>Practice amount: ₱5,000</p>
-      <p>Example duration: 30 days</p>
-      <button class="gold" onclick="choosePlan('Premium Plan',5000)">Try plan</button>
-    </div>
+  <section class="section" id="catalog">
+    <h2>🎬 Explore Videos</h2>
+    <div class="grid" id="grid"></div>
+    <p id="empty" style="display:none">No videos found. Try another search.</p>
   </section>
 
-  <h2>Deposit / Withdrawal interface</h2>
-  <section class="card">
-    <p class="notice">Prototype only. These controls use virtual credits and do not send, receive, or store real money or payment details.</p>
-    <label for="money">Amount in pesos</label>
-    <input id="money" type="number" min="1" placeholder="Enter amount">
-    <button class="gold" onclick="moveMoney('deposit')">Demo deposit</button>
-    <button class="dark" onclick="moveMoney('withdraw')">Demo withdrawal</button>
-    <p id="message" aria-live="polite"></p>
-  </section>
-
-  <h2>Transaction history</h2>
-  <section class="card">
-    <table>
-      <thead><tr><th>Activity</th><th>Amount</th><th>Status</th></tr></thead>
-      <tbody id="history">
-        <tr><td>Demo account created</td><td>₱10,000</td><td>Virtual</td></tr>
-      </tbody>
-    </table>
-    <button class="dark" onclick="clearHistory()">Clear history</button>
-  </section>
-
-  <h2>Member account preview</h2>
-  <section class="card">
-    <p>This is a visual preview only, not secure account registration.</p>
-    <label for="member">Display name</label>
-    <input id="member" placeholder="Enter a sample display name">
-    <button class="gold" onclick="previewMember()">Preview account</button>
-    <p id="memberMessage"></p>
-  </section>
-
-  <section class="card">
-    <h2>Important information</h2>
-    <p>This website is a front-end prototype. It has no secure backend, verified identity system, real payment processing, or real investment management. Balances and activities are illustrative and may reset after refreshing the page. Do not enter real passwords, banking details, or personal financial information.</p>
+  <section class="section">
+    <h2>📺 Add Your Own Legal Video</h2>
+    <p class="small">To add a movie, edit the videos list in this code. Use only videos you own or that are legally available for embedding or streaming.</p>
   </section>
 </main>
 
-<footer>Pinoy Invest · Website prototype</footer>
+<footer>
+  <p>© PINOY PLAY • Created by Reymart Villato</p>
+  <p>Free video discovery website. Availability depends on the video source.</p>
+</footer>
 
 <script>
-let balance=10000;
-let invested=0;
+const videos = [
+ {title:"Big Buck Bunny",category:"Animation",year:"2008",desc:"Open animated short film",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",poster:"🐰 BIG BUCK BUNNY"},
+ {title:"Elephant Dream",category:"Animation",year:"2006",desc:"Open animated science-fiction film",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",poster:"🤖 ELEPHANT DREAM"},
+ {title:"For Bigger Escapes",category:"Nature",year:"Demo",desc:"Sample travel video",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",poster:"🌄 BIGGER ESCAPES"},
+ {title:"For Bigger Fun",category:"Classic",year:"Demo",desc:"Sample entertainment video",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",poster:"🎥 BIGGER FUN"},
+ {title:"Sintel",category:"Animation",year:"2010",desc:"Open animated fantasy short",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",poster:"🐉 SINTEL"},
+ {title:"Tears of Steel",category:"Classic",year:"2012",desc:"Open science-fiction short film",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",poster:"🚀 TEARS OF STEEL"}
+];
 
-function peso(n){
-  return n.toLocaleString('en-PH',{style:'currency',currency:'PHP'});
+function render(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const c=document.getElementById("category").value;
+ const list=videos.filter(v=>(v.title+" "+v.category+" "+v.desc).toLowerCase().includes(q)&&(c==="All"||v.category===c));
+ document.getElementById("grid").innerHTML=list.map(v=>`
+ <article class="movie" onclick="playVideo('${v.title.replace(/'/g,"\\'")}')">
+ <div class="poster">${v.poster}</div>
+ <h3>${v.title}</h3>
+ <p>${v.category} • ${v.year}</p>
+ </article>`).join("");
+ document.getElementById("empty").style.display=list.length?"none":"block";
 }
-function update(){
-  document.getElementById('balance').textContent=peso(balance);
-  document.getElementById('invested').textContent=peso(invested);
-  document.getElementById('profit').textContent=peso(0);
+
+function playVideo(title){
+ const v=videos.find(x=>x.title===title);
+ if(!v)return;
+ const player=document.getElementById("player");
+ const video=document.getElementById("video");
+ player.style.display="block";
+ document.getElementById("playingTitle").textContent=v.title;
+ document.getElementById("videoInfo").textContent=v.desc+" • Video provided by an external sample source.";
+ video.src=v.url;
+ video.load();
+ player.scrollIntoView({behavior:"smooth"});
 }
-function log(name,amount,status='Virtual'){
-  const tr=document.createElement('tr');
-  [name,peso(amount),status].forEach(value=>{
-    const td=document.createElement('td');
-    td.textContent=value;
-    tr.appendChild(td);
-  });
-  document.getElementById('history').prepend(tr);
+function closePlayer(){
+ const video=document.getElementById("video");
+ video.pause();video.removeAttribute("src");video.load();
+ document.getElementById("player").style.display="none";
 }
-function choosePlan(name,amount){
-  if(balance<amount){
-    document.getElementById('message').textContent='Not enough virtual credits. Use Demo deposit first.';
-    return;
-  }
-  balance-=amount;
-  invested+=amount;
-  update();
-  log(name+' selected',amount,'Demo');
-  document.getElementById('message').textContent=
-    name+' added to your demo portfolio. No real investment was made.';
-}
-function moveMoney(type){
-  const amount=Number(document.getElementById('money').value);
-  const msg=document.getElementById('message');
-  if(!Number.isFinite(amount)||amount<=0){
-    msg.textContent='Enter a valid amount greater than zero.';
-    return;
-  }
-  if(type==='deposit'){
-    balance+=amount;
-    msg.textContent='Demo deposit recorded using virtual credits only.';
-    log('Demo deposit',amount,'Virtual');
-  }else{
-    if(amount>balance){
-      msg.textContent='Insufficient virtual balance.';
-      return;
-    }
-    balance-=amount;
-    msg.textContent='Demo withdrawal recorded. No money was transferred.';
-    log('Demo withdrawal',-amount,'Virtual');
-  }
-  document.getElementById('money').value='';
-  update();
-}
-function clearHistory(){
-  document.getElementById('history').replaceChildren();
-  document.getElementById('message').textContent='Demo activity cleared.';
-}
-function previewMember(){
-  const name=document.getElementById('member').value.trim();
-  document.getElementById('memberMessage').textContent=name
-    ?'Account preview: '+name+' (demo only).'
-    :'Please enter a sample display name.';
-}
-update();
+render();
 </script>
 </body>
 </html>

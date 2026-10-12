@@ -3,127 +3,231 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090d">
 <title>PINOY PLAY | Reymart Villato</title>
 <style>
+:root{--red:#f01832;--bg:#09090d;--panel:#17171f;--muted:#aaa}
 *{box-sizing:border-box}
-body{margin:0;background:#0b0b0b;color:white;font-family:Arial,sans-serif}
-header{padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:#111;position:sticky;top:0;z-index:5}
-.logo{font-size:25px;font-weight:bold;color:#e50914}
+body{margin:0;background:var(--bg);color:#fff;font-family:Arial,sans-serif}
+header{background:#101016;position:sticky;top:0;z-index:5;padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #282832}
+.logo{font-size:25px;font-weight:900;color:var(--red)}
 .creator{font-size:11px;color:#aaa;margin-top:5px}
-input,select{background:#222;color:white;border:1px solid #444;padding:11px;border-radius:7px;max-width:100%}
-main{padding:20px 5%}
-.hero{padding:35px 22px;border-radius:12px;background:linear-gradient(90deg,#171717,#303030,#101010);margin-bottom:25px}
-.hero h1{font-size:36px;margin:8px 0}
-.hero p{color:#ccc;line-height:1.5}
-button{border:0;border-radius:6px;padding:11px 15px;cursor:pointer;font-weight:bold}
-.red{background:#e50914;color:white}
-.section{margin:24px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:15px}
-.movie{background:#181818;border-radius:9px;overflow:hidden;cursor:pointer;transition:.2s}
-.movie:hover{transform:scale(1.03)}
-.poster{height:180px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-size:19px;font-weight:bold;background:linear-gradient(145deg,#4b134f,#111,#8f1515)}
-.movie h3{font-size:14px;margin:10px 10px 5px}
-.movie p{font-size:12px;color:#aaa;margin:0 10px 12px}
-.player{display:none;margin:20px 0;background:#181818;padding:15px;border-radius:10px}
-video{width:100%;max-height:480px;background:#000}
-.small{font-size:12px;color:#aaa;line-height:1.6}
-footer{padding:25px;text-align:center;background:#111;color:#aaa;font-size:12px}
-@media(max-width:480px){header{padding:14px;gap:10px} .logo{font-size:21px}main{padding:15px}.hero h1{font-size:29px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.poster{height:155px}}
+input,select{background:#22222c;border:1px solid #393943;border-radius:8px;color:white;padding:12px;width:100%;min-width:0}
+.search{max-width:330px}
+main{max-width:1250px;margin:auto;padding:20px}
+.hero{padding:35px 25px;border-radius:15px;background:linear-gradient(90deg,#24101b,#391322 55%,#11111a);margin-bottom:25px}
+.hero small{color:#ff8493;font-weight:bold;letter-spacing:2px}
+.hero h1{font-size:clamp(32px,7vw,55px);margin:12px 0}
+.hero p{color:#ddd;line-height:1.6;max-width:560px}
+button,.linkbtn{border:0;border-radius:7px;padding:11px 15px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:var(--red);color:white}
+.secondary{background:#292933;color:white}
+button:active{transform:scale(.98)}
+.section{margin:27px 0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+.filters select{width:auto;flex:1;min-width:130px}
+h2{font-size:21px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:14px}
+.card{background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid #262631}
+.poster{height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;background:linear-gradient(145deg,#501327,#171725 60%,#8a2437);font-size:42px}
+.poster span{font-size:15px;font-weight:bold;margin-top:12px}
+.info{padding:11px}
+.info h3{font-size:14px;margin:0 0 7px}
+.info p{font-size:12px;color:var(--muted);line-height:1.5;margin:0 0 10px}
+.actions{display:flex;gap:6px;flex-wrap:wrap}
+.actions button{padding:8px;font-size:12px;flex:1}
+.player{display:none;background:var(--panel);padding:15px;border-radius:12px;margin:20px 0}
+.player video{width:100%;max-height:65vh;background:#000}
+.player iframe{width:100%;height:55vw;max-height:500px;border:0;background:#000}
+.notice{color:#ccc;background:#17171f;padding:15px;border-radius:10px;font-size:13px;line-height:1.7}
+footer{text-align:center;padding:25px;background:#111118;color:#aaa;font-size:12px;line-height:1.8}
+.empty{color:#aaa;padding:20px 0}
+a{color:#ff7d8d}
+@media(max-width:550px){
+ header{padding:12px;flex-wrap:wrap}
+ .top{width:100%;display:flex;justify-content:space-between;align-items:center}
+ .search{max-width:none}
+ main{padding:14px}
+ .hero{padding:25px 18px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .poster{height:150px}
+ .actions button{font-size:11px;padding:8px 5px}
+}
 </style>
 </head>
 <body>
 <header>
-  <div>
+  <div class="top">
     <div class="logo">▶ PINOY PLAY</div>
     <div class="creator">Created by Reymart Villato</div>
   </div>
-  <input id="search" placeholder="Search videos..." oninput="render()" aria-label="Search videos">
+  <div class="search">
+    <input id="search" placeholder="🔎 Search videos..." aria-label="Search videos">
+  </div>
 </header>
 
 <main>
   <section class="hero">
-    <p>WELCOME TO</p>
-    <h1>PINOY PLAY</h1>
-    <p>Your place for free movies, classic cinema and public-domain videos.</p>
-    <button class="red" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">▶ Explore Videos</button>
+    <small>YOUR ENTERTAINMENT HUB</small>
+    <h1>Discover. Watch. Enjoy.</h1>
+    <p>Explore classic cinema, animation and free video collections. Find something to watch and save your favorites.</p>
+    <button class="primary" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">▶ Explore Videos</button>
+    <a class="linkbtn secondary" href="https://archive.org/details/movies" target="_blank" rel="noopener">Browse Free Movies ↗</a>
   </section>
 
-  <div class="section">
-    <label for="category">Choose category: </label>
-    <select id="category" onchange="render()">
-      <option value="All">All Videos</option>
-      <option value="Classic">Classic Movies</option>
-      <option value="Animation">Animation</option>
-      <option value="Documentary">Documentary</option>
-      <option value="Nature">Nature</option>
-    </select>
-  </div>
-
   <section class="player" id="player">
-    <h2 id="playingTitle">Video Player</h2>
-    <video id="video" controls playsinline></video>
-    <p id="videoInfo" class="small"></p>
-    <button onclick="closePlayer()">Close Player</button>
+    <h2 id="playerTitle">Now Playing</h2>
+    <div id="playerArea"></div>
+    <p id="playerDesc" class="notice"></p>
+    <button class="secondary" onclick="closePlayer()">✕ Close Player</button>
   </section>
 
   <section class="section" id="catalog">
     <h2>🎬 Explore Videos</h2>
+    <div class="filters">
+      <select id="category" aria-label="Category">
+        <option value="All">All Categories</option>
+        <option value="Animation">Animation</option>
+        <option value="Classic">Classic & Sci-Fi</option>
+        <option value="Nature">Travel & Nature</option>
+        <option value="Documentary">Documentary</option>
+      </select>
+      <select id="sort" aria-label="Sort videos">
+        <option value="featured">Featured First</option>
+        <option value="az">Title A–Z</option>
+      </select>
+    </div>
     <div class="grid" id="grid"></div>
-    <p id="empty" style="display:none">No videos found. Try another search.</p>
+    <p id="empty" class="empty" hidden>No videos found. Try another search or category.</p>
   </section>
 
   <section class="section">
-    <h2>📺 Add Your Own Legal Video</h2>
-    <p class="small">To add a movie, edit the videos list in this code. Use only videos you own or that are legally available for embedding or streaming.</p>
+    <h2>❤️ My Favorites <span id="favCount"></span></h2>
+    <div class="grid" id="favorites"></div>
+    <p id="favEmpty" class="empty">Tap ♡ on a video to save it here.</p>
   </section>
+
+  <section class="section">
+    <h2>🔖 My Watchlist <span id="watchCount"></span></h2>
+    <div class="grid" id="watchlist"></div>
+    <p id="watchEmpty" class="empty">Tap + Watchlist to save videos for later.</p>
+  </section>
+
+  <section class="section">
+    <h2>🌐 More Free Movies</h2>
+    <div class="notice">
+      Browse collections from the Internet Archive. Check each video's copyright status, license and streaming availability before watching or sharing it.
+      <p><a href="https://archive.org/details/feature_films" target="_blank" rel="noopener">Feature Films ↗</a></p>
+      <p><a href="https://archive.org/details/animationandcartoons" target="_blank" rel="noopener">Animation & Cartoons ↗</a></p>
+      <p><a href="https://commons.wikimedia.org/wiki/Category:Videos" target="_blank" rel="noopener">Wikimedia Commons Videos ↗</a></p>
+    </div>
+  </section>
+  <p class="notice">ℹ️ PINOY PLAY is an independent video discovery website. It does not host a full commercial movie library. Some sample videos may not be available at all times.</p>
 </main>
 
 <footer>
-  <p>© PINOY PLAY • Created by Reymart Villato</p>
-  <p>Free video discovery website. Availability depends on the video source.</p>
+  <strong>▶ PINOY PLAY</strong><br>
+  Created by Reymart Villato<br>
+  Free video discovery • Mobile-friendly
 </footer>
 
 <script>
 const videos = [
- {title:"Big Buck Bunny",category:"Animation",year:"2008",desc:"Open animated short film",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",poster:"🐰 BIG BUCK BUNNY"},
- {title:"Elephant Dream",category:"Animation",year:"2006",desc:"Open animated science-fiction film",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",poster:"🤖 ELEPHANT DREAM"},
- {title:"For Bigger Escapes",category:"Nature",year:"Demo",desc:"Sample travel video",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",poster:"🌄 BIGGER ESCAPES"},
- {title:"For Bigger Fun",category:"Classic",year:"Demo",desc:"Sample entertainment video",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",poster:"🎥 BIGGER FUN"},
- {title:"Sintel",category:"Animation",year:"2010",desc:"Open animated fantasy short",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",poster:"🐉 SINTEL"},
- {title:"Tears of Steel",category:"Classic",year:"2012",desc:"Open science-fiction short film",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",poster:"🚀 TEARS OF STEEL"}
+ {id:"bunny",title:"Big Buck Bunny",category:"Animation",year:"2008",emoji:"🐰",desc:"Animated short film sample.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"},
+ {id:"dream",title:"Elephants Dream",category:"Animation",year:"2006",emoji:"🤖",desc:"Experimental animated short film sample.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"},
+ {id:"sintel",title:"Sintel",category:"Animation",year:"2010",emoji:"🐉",desc:"Open animated fantasy short film sample.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"},
+ {id:"steel",title:"Tears of Steel",category:"Classic",year:"2012",emoji:"🚀",desc:"Science-fiction short film sample.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"},
+ {id:"escape",title:"For Bigger Escapes",category:"Nature",year:"Sample",emoji:"🌄",desc:"Sample travel video.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"},
+ {id:"fun",title:"For Bigger Fun",category:"Classic",year:"Sample",emoji:"🎥",desc:"Sample entertainment video.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"}
 ];
 
-function render(){
- const q=document.getElementById("search").value.toLowerCase();
- const c=document.getElementById("category").value;
- const list=videos.filter(v=>(v.title+" "+v.category+" "+v.desc).toLowerCase().includes(q)&&(c==="All"||v.category===c));
- document.getElementById("grid").innerHTML=list.map(v=>`
- <article class="movie" onclick="playVideo('${v.title.replace(/'/g,"\\'")}')">
- <div class="poster">${v.poster}</div>
- <h3>${v.title}</h3>
- <p>${v.category} • ${v.year}</p>
- </article>`).join("");
- document.getElementById("empty").style.display=list.length?"none":"block";
+const $ = id => document.getElementById(id);
+const readList = key => {
+ try { return JSON.parse(localStorage.getItem(key) || "[]"); }
+ catch(e) { return []; }
+};
+let favorites = readList("pinoyplay_favorites");
+let watchlist = readList("pinoyplay_watchlist");
+
+function saveLists(){
+ try {
+  localStorage.setItem("pinoyplay_favorites",JSON.stringify(favorites));
+  localStorage.setItem("pinoyplay_watchlist",JSON.stringify(watchlist));
+ } catch(e) {}
 }
 
-function playVideo(title){
- const v=videos.find(x=>x.title===title);
+function cardHTML(v,showActions=true){
+ const fav=favorites.includes(v.id);
+ const watch=watchlist.includes(v.id);
+ return `<article class="card">
+  <div class="poster">${v.emoji}<span>${v.title}</span></div>
+  <div class="info">
+   <h3>${v.title}</h3>
+   <p>${v.category} · ${v.year}<br>${v.desc}</p>
+   <div class="actions">
+    <button class="primary" onclick="playVideo('${v.id}')">▶ Play</button>
+    ${showActions?`<button class="secondary" onclick="toggleFavorite('${v.id}')">${fav?'♥ Saved':'♡ Favorite'}</button>
+    <button class="secondary" onclick="toggleWatch('${v.id}')">${watch?'✓ Saved':'＋ Watchlist'}</button>`:''}
+   </div>
+  </div>
+ </article>`;
+}
+
+function render(){
+ const q=$("search").value.toLowerCase().trim();
+ const cat=$("category").value;
+ let list=videos.filter(v=>(v.title+" "+v.category+" "+v.desc).toLowerCase().includes(q)&&(cat==="All"||v.category===cat));
+ if($("sort").value==="az") list.sort((a,b)=>a.title.localeCompare(b.title));
+ $("grid").innerHTML=list.map(v=>cardHTML(v)).join("");
+ $("empty").hidden=list.length>0;
+ renderSaved();
+}
+
+function renderSaved(){
+ const fav=videos.filter(v=>favorites.includes(v.id));
+ const watch=videos.filter(v=>watchlist.includes(v.id));
+ $("favorites").innerHTML=fav.map(v=>cardHTML(v)).join("");
+ $("watchlist").innerHTML=watch.map(v=>cardHTML(v)).join("");
+ $("favCount").textContent="("+fav.length+")";
+ $("watchCount").textContent="("+watch.length+")";
+ $("favEmpty").hidden=fav.length>0;
+ $("watchEmpty").hidden=watch.length>0;
+}
+
+function toggleFavorite(id){
+ favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];
+ saveLists();render();
+}
+function toggleWatch(id){
+ watchlist=watchlist.includes(id)?watchlist.filter(x=>x!==id):[...watchlist,id];
+ saveLists();render();
+}
+function playVideo(id){
+ const v=videos.find(x=>x.id===id);
  if(!v)return;
- const player=document.getElementById("player");
- const video=document.getElementById("video");
- player.style.display="block";
- document.getElementById("playingTitle").textContent=v.title;
- document.getElementById("videoInfo").textContent=v.desc+" • Video provided by an external sample source.";
+ $("player").style.display="block";
+ $("playerTitle").textContent="▶ "+v.title;
+ $("playerDesc").textContent=v.desc+" Playback depends on the external video source.";
+ $("playerArea").innerHTML="";
+ const video=document.createElement("video");
+ video.controls=true;
+ video.playsInline=true;
+ video.preload="metadata";
  video.src=v.url;
- video.load();
- player.scrollIntoView({behavior:"smooth"});
+ video.style.width="100%";
+ $("playerArea").appendChild(video);
+ $("player").scrollIntoView({behavior:"smooth"});
 }
 function closePlayer(){
- const video=document.getElementById("video");
- video.pause();video.removeAttribute("src");video.load();
- document.getElementById("player").style.display="none";
+ const area=$("playerArea");
+ area.querySelectorAll("video").forEach(v=>{v.pause();v.removeAttribute("src");v.load();});
+ area.innerHTML="";
+ $("player").style.display="none";
 }
+$("search").addEventListener("input",render);
+$("category").addEventListener("change",render);
+$("sort").addEventListener("change",render);
 render();
 </script>
 </body>

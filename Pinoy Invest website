@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pinoy Invest</title>
+<style>
+:root{--bg:#0b1110;--panel:#14201a;--line:#304438;--gold:#e4c86f;--text:#f6f6f1;--muted:#a6b4aa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+header{padding:18px 20px;background:#111b16;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:800;color:var(--gold)}
+.logo span{color:white}
+.demo{font-size:11px;color:#ffe6a0;background:#3c3218;padding:8px 10px;border-radius:7px}
+.layout{max-width:1100px;margin:auto;padding:18px}
+.welcome{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+h1{font-size:25px;margin-bottom:5px}
+h2{font-size:19px;margin-top:25px}
+p{color:var(--muted);line-height:1.5}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px;margin:12px 0}
+.label{font-size:13px;color:var(--muted)}
+.amount{font-size:28px;font-weight:bold;color:var(--gold);margin:12px 0}
+.stat{font-size:22px;font-weight:bold;margin-top:10px}
+button{cursor:pointer;border:0;border-radius:9px;padding:12px 15px;font-weight:bold;margin:4px 2px}
+.gold{background:var(--gold);color:#172016}
+.dark{background:#2a3d30;color:white;border:1px solid #435b49}
+input,select{width:100%;padding:12px;margin:7px 0;background:#0b1310;color:white;border:1px solid #43584a;border-radius:8px}
+.plan{display:flex;flex-direction:column;align-items:flex-start}
+.plan button{margin-top:auto}
+.tag{font-size:11px;background:#25372a;color:#bce5bd;border-radius:5px;padding:6px 8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{text-align:left;padding:12px 6px;border-bottom:1px solid var(--line)}
+th{color:var(--muted)}
+.notice{border-left:3px solid var(--gold);padding:10px 13px;background:#1c241b;border-radius:5px}
+footer{text-align:center;color:#7e9184;padding:25px;font-size:12px}
+@media(max-width:450px){.amount{font-size:24px}.layout{padding:12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">PINOY <span>INVEST</span></div>
+  <div class="demo">PROTOTYPE · VIRTUAL FUNDS ONLY</div>
+</header>
+
+<main class="layout">
+  <div class="welcome">
+    <div>
+      <h1>My Dashboard</h1>
+      <p>Welcome to your investment platform prototype.</p>
+    </div>
+    <span class="tag">ACCOUNT: DEMO</span>
+  </div>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">Virtual account balance</div>
+      <div class="amount" id="balance">₱10,000.00</div>
+      <p class="label">Practice credits only — not withdrawable cash.</p>
+    </div>
+    <div class="card">
+      <div class="label">Demo investments</div>
+      <div class="stat" id="invested">₱0.00</div>
+      <p class="label">Virtual amount allocated to sample plans.</p>
+    </div>
+    <div class="card">
+      <div class="label">Illustrative result</div>
+      <div class="stat" id="profit">₱0.00</div>
+      <p class="label">No actual profit has been earned.</p>
+    </div>
+  </section>
+
+  <h2>Investment plans</h2>
+  <p>Sample plans for interface testing. No real investment or return is offered.</p>
+  <section class="grid">
+    <div class="card plan">
+      <span class="tag">STARTER</span>
+      <h3>Basic Plan</h3>
+      <p>Practice amount: ₱1,000</p>
+      <p>Example duration: 7 days</p>
+      <button class="gold" onclick="choosePlan('Basic Plan',1000)">Try plan</button>
+    </div>
+    <div class="card plan">
+      <span class="tag">GROWTH</span>
+      <h3>Growth Plan</h3>
+      <p>Practice amount: ₱3,000</p>
+      <p>Example duration: 14 days</p>
+      <button class="gold" onclick="choosePlan('Growth Plan',3000)">Try plan</button>
+    </div>
+    <div class="card plan">
+      <span class="tag">PREMIUM</span>
+      <h3>Premium Plan</h3>
+      <p>Practice amount: ₱5,000</p>
+      <p>Example duration: 30 days</p>
+      <button class="gold" onclick="choosePlan('Premium Plan',5000)">Try plan</button>
+    </div>
+  </section>
+
+  <h2>Deposit / Withdrawal interface</h2>
+  <section class="card">
+    <p class="notice">Prototype only. These controls use virtual credits and do not send, receive, or store real money or payment details.</p>
+    <label for="money">Amount in pesos</label>
+    <input id="money" type="number" min="1" placeholder="Enter amount">
+    <button class="gold" onclick="moveMoney('deposit')">Demo deposit</button>
+    <button class="dark" onclick="moveMoney('withdraw')">Demo withdrawal</button>
+    <p id="message" aria-live="polite"></p>
+  </section>
+
+  <h2>Transaction history</h2>
+  <section class="card">
+    <table>
+      <thead><tr><th>Activity</th><th>Amount</th><th>Status</th></tr></thead>
+      <tbody id="history">
+        <tr><td>Demo account created</td><td>₱10,000</td><td>Virtual</td></tr>
+      </tbody>
+    </table>
+    <button class="dark" onclick="clearHistory()">Clear history</button>
+  </section>
+
+  <h2>Member account preview</h2>
+  <section class="card">
+    <p>This is a visual preview only, not secure account registration.</p>
+    <label for="member">Display name</label>
+    <input id="member" placeholder="Enter a sample display name">
+    <button class="gold" onclick="previewMember()">Preview account</button>
+    <p id="memberMessage"></p>
+  </section>
+
+  <section class="card">
+    <h2>Important information</h2>
+    <p>This website is a front-end prototype. It has no secure backend, verified identity system, real payment processing, or real investment management. Balances and activities are illustrative and may reset after refreshing the page. Do not enter real passwords, banking details, or personal financial information.</p>
+  </section>
+</main>
+
+<footer>Pinoy Invest · Website prototype</footer>
+
+<script>
+let balance=10000;
+let invested=0;
+
+function peso(n){
+  return n.toLocaleString('en-PH',{style:'currency',currency:'PHP'});
+}
+function update(){
+  document.getElementById('balance').textContent=peso(balance);
+  document.getElementById('invested').textContent=peso(invested);
+  document.getElementById('profit').textContent=peso(0);
+}
+function log(name,amount,status='Virtual'){
+  const tr=document.createElement('tr');
+  [name,peso(amount),status].forEach(value=>{
+    const td=document.createElement('td');
+    td.textContent=value;
+    tr.appendChild(td);
+  });
+  document.getElementById('history').prepend(tr);
+}
+function choosePlan(name,amount){
+  if(balance<amount){
+    document.getElementById('message').textContent='Not enough virtual credits. Use Demo deposit first.';
+    return;
+  }
+  balance-=amount;
+  invested+=amount;
+  update();
+  log(name+' selected',amount,'Demo');
+  document.getElementById('message').textContent=
+    name+' added to your demo portfolio. No real investment was made.';
+}
+function moveMoney(type){
+  const amount=Number(document.getElementById('money').value);
+  const msg=document.getElementById('message');
+  if(!Number.isFinite(amount)||amount<=0){
+    msg.textContent='Enter a valid amount greater than zero.';
+    return;
+  }
+  if(type==='deposit'){
+    balance+=amount;
+    msg.textContent='Demo deposit recorded using virtual credits only.';
+    log('Demo deposit',amount,'Virtual');
+  }else{
+    if(amount>balance){
+      msg.textContent='Insufficient virtual balance.';
+      return;
+    }
+    balance-=amount;
+    msg.textContent='Demo withdrawal recorded. No money was transferred.';
+    log('Demo withdrawal',-amount,'Virtual');
+  }
+  document.getElementById('money').value='';
+  update();
+}
+function clearHistory(){
+  document.getElementById('history').replaceChildren();
+  document.getElementById('message').textContent='Demo activity cleared.';
+}
+function previewMember(){
+  const name=document.getElementById('member').value.trim();
+  document.getElementById('memberMessage').textContent=name
+    ?'Account preview: '+name+' (demo only).'
+    :'Please enter a sample display name.';
+}
+update();
+</script>
+</body>
+</html>

@@ -4,7 +4,6 @@
   "short_name": "Pinoy Tools",
   "description": "Free calculators for salary, overtime, 13th month pay, savings, and work hours."
   "start_url": "/pinoy-play/",
-  "start_url": "/pinoy-play/",
   "scope": "/pinoy-play/",
   "display": "standalone",
   "background_color": "#ffffff",

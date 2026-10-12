@@ -1,233 +1,220 @@
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#09090d">
-<title>PINOY PLAY | Reymart Villato</title>
+<meta name="theme-color" content="#11131b">
+<title>PINOY PLAY — Reymart Villato</title>
 <style>
-:root{--red:#f01832;--bg:#09090d;--panel:#17171f;--muted:#aaa}
+:root{--bg:#11131b;--panel:#1b1e29;--line:#2c3040;--blue:#00aeec;--pink:#fb7299;--muted:#aeb4c5}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#fff;font-family:Arial,sans-serif}
-header{background:#101016;position:sticky;top:0;z-index:5;padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #282832}
-.logo{font-size:25px;font-weight:900;color:var(--red)}
-.creator{font-size:11px;color:#aaa;margin-top:5px}
-input,select{background:#22222c;border:1px solid #393943;border-radius:8px;color:white;padding:12px;width:100%;min-width:0}
-.search{max-width:330px}
-main{max-width:1250px;margin:auto;padding:20px}
-.hero{padding:35px 25px;border-radius:15px;background:linear-gradient(90deg,#24101b,#391322 55%,#11111a);margin-bottom:25px}
-.hero small{color:#ff8493;font-weight:bold;letter-spacing:2px}
-.hero h1{font-size:clamp(32px,7vw,55px);margin:12px 0}
-.hero p{color:#ddd;line-height:1.6;max-width:560px}
-button,.linkbtn{border:0;border-radius:7px;padding:11px 15px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
-.primary{background:var(--red);color:white}
-.secondary{background:#292933;color:white}
-button:active{transform:scale(.98)}
-.section{margin:27px 0}
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
-.filters select{width:auto;flex:1;min-width:130px}
-h2{font-size:21px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:14px}
-.card{background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid #262631}
-.poster{height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;background:linear-gradient(145deg,#501327,#171725 60%,#8a2437);font-size:42px}
-.poster span{font-size:15px;font-weight:bold;margin-top:12px}
-.info{padding:11px}
-.info h3{font-size:14px;margin:0 0 7px}
-.info p{font-size:12px;color:var(--muted);line-height:1.5;margin:0 0 10px}
-.actions{display:flex;gap:6px;flex-wrap:wrap}
-.actions button{padding:8px;font-size:12px;flex:1}
-.player{display:none;background:var(--panel);padding:15px;border-radius:12px;margin:20px 0}
-.player video{width:100%;max-height:65vh;background:#000}
-.player iframe{width:100%;height:55vw;max-height:500px;border:0;background:#000}
-.notice{color:#ccc;background:#17171f;padding:15px;border-radius:10px;font-size:13px;line-height:1.7}
-footer{text-align:center;padding:25px;background:#111118;color:#aaa;font-size:12px;line-height:1.8}
-.empty{color:#aaa;padding:20px 0}
-a{color:#ff7d8d}
-@media(max-width:550px){
- header{padding:12px;flex-wrap:wrap}
- .top{width:100%;display:flex;justify-content:space-between;align-items:center}
- .search{max-width:none}
- main{padding:14px}
- .hero{padding:25px 18px}
- .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .poster{height:150px}
- .actions button{font-size:11px;padding:8px 5px}
-}
+body{margin:0;background:var(--bg);color:#f5f6fb;font:15px Arial,sans-serif}
+header{position:sticky;top:0;z-index:10;background:#151721f5;border-bottom:1px solid var(--line);padding:13px 4%;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logo{font-size:25px;font-weight:900;color:var(--blue);white-space:nowrap}.logo b{color:var(--pink)}
+form{display:flex;flex:1;min-width:210px;max-width:700px}
+input{width:100%;min-width:0;padding:13px;background:#252836;border:1px solid #393e50;color:white;border-radius:12px 0 0 12px;outline:none;font-size:15px}
+input:focus{border-color:var(--blue)}
+button{cursor:pointer;border:0;font-weight:700}
+.searchbtn{background:var(--blue);padding:0 18px;border-radius:0 12px 12px 0;color:#10131b}
+nav{display:flex;gap:9px;overflow-x:auto;padding:14px 4%}
+.chip{white-space:nowrap;background:#252835;color:#e5e8f1;border-radius:25px;padding:10px 15px}
+.chip.active,.chip:hover{background:var(--blue);color:#10131b}
+main{padding:0 4% 40px}
+.hero{padding:30px;border-radius:18px;background:linear-gradient(115deg,#06496a,#25224b 65%,#53294e);margin-bottom:25px}
+.hero h1{font-size:clamp(30px,5vw,48px);margin:0 0 10px}
+.hero p{color:#e0e8f5;line-height:1.6}
+.primary{background:var(--pink);padding:12px 17px;border-radius:10px}
+.section{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:25px 0 15px}
+.section h2{font-size:21px;margin:0}
+.muted{color:var(--muted);font-size:13px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.card{min-width:0;background:var(--panel);border:1px solid transparent;border-radius:13px;overflow:hidden}
+.card:hover{border-color:#41475b}
+.thumb{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#292d3a}
+.body{padding:11px}
+.card h3{font-size:14px;line-height:1.45;margin:0 0 8px}
+.actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.small{background:#2b3040;color:#f5f6fb;border-radius:7px;padding:8px;font-size:12px}
+.small:hover{background:#41485d}
+#playerBox{display:none;background:var(--panel);border-radius:15px;padding:15px;margin:22px 0}
+#player{width:100%;max-height:65vh;background:black;border-radius:10px}
+#status{color:var(--muted);font-size:13px}
+#message{color:var(--muted);padding:24px 8px;text-align:center;grid-column:1/-1}
+.source{background:var(--panel);border-radius:14px;padding:20px;margin-top:35px}
+a{color:var(--blue)}
+footer{text-align:center;color:var(--muted);border-top:1px solid var(--line);padding:25px}
+@media(max-width:950px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){header{gap:12px}.logo{font-size:22px}form{order:2;flex-basis:100%;max-width:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.body{padding:9px}.card h3{font-size:13px}.hero{padding:22px 18px}main{padding-left:4%;padding-right:4%}}
 </style>
 </head>
 <body>
 <header>
-  <div class="top">
-    <div class="logo">▶ PINOY PLAY</div>
-    <div class="creator">Created by Reymart Villato</div>
-  </div>
-  <div class="search">
-    <input id="search" placeholder="🔎 Search videos..." aria-label="Search videos">
-  </div>
+  <div class="logo">PINOY <b>PLAY</b></div>
+  <form id="searchForm">
+    <input id="query" type="search" placeholder="Search videos or free movies..." aria-label="Search videos">
+    <button class="searchbtn">Search</button>
+  </form>
 </header>
+
+<nav id="nav">
+  <button class="chip active" data-cat="All">For You</button>
+  <button class="chip" data-cat="Animation">Animation</button>
+  <button class="chip" data-cat="Movies">Movies</button>
+  <button class="chip" data-cat="Nature">Nature</button>
+  <button class="chip" data-cat="Education">Education</button>
+  <button class="chip" data-cat="Favorites">♥ Favorites</button>
+  <button class="chip" data-cat="Watchlist">＋ Watchlist</button>
+</nav>
 
 <main>
   <section class="hero">
-    <small>YOUR ENTERTAINMENT HUB</small>
     <h1>Discover. Watch. Enjoy.</h1>
-    <p>Explore classic cinema, animation and free video collections. Find something to watch and save your favorites.</p>
-    <button class="primary" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">▶ Explore Videos</button>
-    <a class="linkbtn secondary" href="https://archive.org/details/movies" target="_blank" rel="noopener">Browse Free Movies ↗</a>
+    <p>Your own video corner.<br>Search, explore and watch videos on PINOY PLAY.</p>
+    <button class="primary" onclick="document.getElementById('videos').scrollIntoView({behavior:'smooth'})">Explore videos ↓</button>
   </section>
 
-  <section class="player" id="player">
-    <h2 id="playerTitle">Now Playing</h2>
-    <div id="playerArea"></div>
-    <p id="playerDesc" class="notice"></p>
-    <button class="secondary" onclick="closePlayer()">✕ Close Player</button>
-  </section>
-
-  <section class="section" id="catalog">
-    <h2>🎬 Explore Videos</h2>
-    <div class="filters">
-      <select id="category" aria-label="Category">
-        <option value="All">All Categories</option>
-        <option value="Animation">Animation</option>
-        <option value="Classic">Classic & Sci-Fi</option>
-        <option value="Nature">Travel & Nature</option>
-        <option value="Documentary">Documentary</option>
-      </select>
-      <select id="sort" aria-label="Sort videos">
-        <option value="featured">Featured First</option>
-        <option value="az">Title A–Z</option>
-      </select>
+  <section id="playerBox">
+    <div class="section">
+      <h2 id="playerTitle">Now Playing</h2>
+      <button class="small" onclick="closePlayer()">✕ Close</button>
     </div>
-    <div class="grid" id="grid"></div>
-    <p id="empty" class="empty" hidden>No videos found. Try another search or category.</p>
+    <video id="player" controls playsinline preload="metadata"></video>
+    <p id="status">Choose a video to play.</p>
   </section>
 
-  <section class="section">
-    <h2>❤️ My Favorites <span id="favCount"></span></h2>
-    <div class="grid" id="favorites"></div>
-    <p id="favEmpty" class="empty">Tap ♡ on a video to save it here.</p>
-  </section>
+  <div class="section" id="videos">
+    <h2 id="heading">Recommended Videos</h2>
+    <span class="muted" id="count"></span>
+  </div>
+  <div class="grid" id="grid"></div>
 
-  <section class="section">
-    <h2>🔖 My Watchlist <span id="watchCount"></span></h2>
-    <div class="grid" id="watchlist"></div>
-    <p id="watchEmpty" class="empty">Tap + Watchlist to save videos for later.</p>
+  <section class="source">
+    <h2>🎬 Find Free Movies</h2>
+    <p class="muted">Search Internet Archive for movies and videos. Playback depends on whether the item has an accessible video file. Check the rights and license of each title before sharing it.</p>
+    <button class="primary" id="archiveBtn">Search Internet Archive</button>
+    <p class="muted" id="archiveStatus"></p>
+    <p><a href="https://archive.org/details/feature_films" target="_blank" rel="noopener">Browse free feature-film collection ↗</a></p>
+    <p><a href="https://commons.wikimedia.org/wiki/Category:Videos" target="_blank" rel="noopener">Browse Wikimedia Commons videos ↗</a></p>
   </section>
-
-  <section class="section">
-    <h2>🌐 More Free Movies</h2>
-    <div class="notice">
-      Browse collections from the Internet Archive. Check each video's copyright status, license and streaming availability before watching or sharing it.
-      <p><a href="https://archive.org/details/feature_films" target="_blank" rel="noopener">Feature Films ↗</a></p>
-      <p><a href="https://archive.org/details/animationandcartoons" target="_blank" rel="noopener">Animation & Cartoons ↗</a></p>
-      <p><a href="https://commons.wikimedia.org/wiki/Category:Videos" target="_blank" rel="noopener">Wikimedia Commons Videos ↗</a></p>
-    </div>
-  </section>
-  <p class="notice">ℹ️ PINOY PLAY is an independent video discovery website. It does not host a full commercial movie library. Some sample videos may not be available at all times.</p>
 </main>
 
-<footer>
-  <strong>▶ PINOY PLAY</strong><br>
-  Created by Reymart Villato<br>
-  Free video discovery • Mobile-friendly
-</footer>
+<footer>© 2026 PINOY PLAY · Created by Reymart Villato</footer>
 
 <script>
-const videos = [
- {id:"bunny",title:"Big Buck Bunny",category:"Animation",year:"2008",emoji:"🐰",desc:"Animated short film sample.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"},
- {id:"dream",title:"Elephants Dream",category:"Animation",year:"2006",emoji:"🤖",desc:"Experimental animated short film sample.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"},
- {id:"sintel",title:"Sintel",category:"Animation",year:"2010",emoji:"🐉",desc:"Open animated fantasy short film sample.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"},
- {id:"steel",title:"Tears of Steel",category:"Classic",year:"2012",emoji:"🚀",desc:"Science-fiction short film sample.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"},
- {id:"escape",title:"For Bigger Escapes",category:"Nature",year:"Sample",emoji:"🌄",desc:"Sample travel video.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"},
- {id:"fun",title:"For Bigger Fun",category:"Classic",year:"Sample",emoji:"🎥",desc:"Sample entertainment video.",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"}
+const demos=[
+{id:"bbb",title:"Big Buck Bunny — Animated Short Film",cat:"Animation",thumb:"https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"},
+{id:"elephants",title:"Elephants Dream — Open Animation",cat:"Animation",thumb:"https://orange.blender.org/wp-content/themes/orange/images/media/gallery/splash.jpg",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"},
+{id:"sintel",title:"Sintel — Blender Animated Film",cat:"Animation",thumb:"https://durian.blender.org/wp-content/uploads/2010/05/03_sintel_bridge.jpg",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"},
+{id:"tears",title:"Tears of Steel — Sci-Fi Short Film",cat:"Movies",thumb:"https://mango.blender.org/wp-content/uploads/2013/05/01_thom_celia_bridge.jpg",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"},
+{id:"escapes",title:"For Bigger Escapes — Demo Video",cat:"Nature",thumb:"https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"},
+{id:"fun",title:"For Bigger Fun — Demo Video",cat:"Movies",thumb:"https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"},
+{id:"joyrides",title:"For Bigger Joyrides — Demo Video",cat:"Nature",thumb:"https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"},
+{id:"science",title:"For Bigger Science — Demo Video",cat:"Education",thumb:"https://storage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerScience.jpg",url:"https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerScience.mp4"}
 ];
-
-const $ = id => document.getElementById(id);
-const readList = key => {
- try { return JSON.parse(localStorage.getItem(key) || "[]"); }
- catch(e) { return []; }
-};
-let favorites = readList("pinoyplay_favorites");
-let watchlist = readList("pinoyplay_watchlist");
-
-function saveLists(){
- try {
-  localStorage.setItem("pinoyplay_favorites",JSON.stringify(favorites));
-  localStorage.setItem("pinoyplay_watchlist",JSON.stringify(watchlist));
- } catch(e) {}
-}
-
-function cardHTML(v,showActions=true){
- const fav=favorites.includes(v.id);
- const watch=watchlist.includes(v.id);
- return `<article class="card">
-  <div class="poster">${v.emoji}<span>${v.title}</span></div>
-  <div class="info">
-   <h3>${v.title}</h3>
-   <p>${v.category} · ${v.year}<br>${v.desc}</p>
+let archiveItems=[];
+let cat="All",q="";
+let fav=load("pp_fav"),watch=load("pp_watch");
+function load(k){try{return JSON.parse(localStorage.getItem(k)||"[]")}catch(e){return []}}
+function persist(){try{localStorage.setItem("pp_fav",JSON.stringify(fav));localStorage.setItem("pp_watch",JSON.stringify(watch))}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function allItems(){return [...demos,...archiveItems]}
+function render(){
+ let list=allItems().filter(v=>{
+  const text=(v.title+" "+(v.cat||"")).toLowerCase().includes(q.toLowerCase());
+  const group=cat==="All"||(cat==="Favorites"?fav.includes(v.id):cat==="Watchlist"?watch.includes(v.id):v.cat===cat);
+  return text&&group;
+ });
+ document.getElementById("heading").textContent=cat==="All"?(q?"Search Results":"Recommended Videos"):cat;
+ document.getElementById("count").textContent=list.length+" videos";
+ document.getElementById("grid").innerHTML=list.length?list.map(v=>`
+ <article class="card">
+  <img class="thumb" src="${esc(v.thumb||"")}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+  <div class="body">
+   <h3>${esc(v.title)}</h3>
+   <div class="muted">${esc(v.cat||"Internet Archive")} · ${v.archive?"External archive":"Sample video"}</div>
    <div class="actions">
-    <button class="primary" onclick="playVideo('${v.id}')">▶ Play</button>
-    ${showActions?`<button class="secondary" onclick="toggleFavorite('${v.id}')">${fav?'♥ Saved':'♡ Favorite'}</button>
-    <button class="secondary" onclick="toggleWatch('${v.id}')">${watch?'✓ Saved':'＋ Watchlist'}</button>`:''}
+    <button class="small" onclick="play('${esc(v.id)}')">▶ Play</button>
+    <button class="small" onclick="toggle('fav','${esc(v.id)}')">${fav.includes(v.id)?"♥ Saved":"♡ Favorite"}</button>
+    <button class="small" onclick="toggle('watch','${esc(v.id)}')">${watch.includes(v.id)?"✓ Saved":"＋ List"}</button>
    </div>
   </div>
- </article>`;
+ </article>`).join(""):'<div id="message">No videos found. Try another search.</div>';
 }
-
-function render(){
- const q=$("search").value.toLowerCase().trim();
- const cat=$("category").value;
- let list=videos.filter(v=>(v.title+" "+v.category+" "+v.desc).toLowerCase().includes(q)&&(cat==="All"||v.category===cat));
- if($("sort").value==="az") list.sort((a,b)=>a.title.localeCompare(b.title));
- $("grid").innerHTML=list.map(v=>cardHTML(v)).join("");
- $("empty").hidden=list.length>0;
- renderSaved();
+function toggle(type,id){
+ let a=type==="fav"?fav:watch,i=a.indexOf(id);
+ if(i>=0)a.splice(i,1);else a.push(id);
+ persist();render();
 }
-
-function renderSaved(){
- const fav=videos.filter(v=>favorites.includes(v.id));
- const watch=videos.filter(v=>watchlist.includes(v.id));
- $("favorites").innerHTML=fav.map(v=>cardHTML(v)).join("");
- $("watchlist").innerHTML=watch.map(v=>cardHTML(v)).join("");
- $("favCount").textContent="("+fav.length+")";
- $("watchCount").textContent="("+watch.length+")";
- $("favEmpty").hidden=fav.length>0;
- $("watchEmpty").hidden=watch.length>0;
-}
-
-function toggleFavorite(id){
- favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];
- saveLists();render();
-}
-function toggleWatch(id){
- watchlist=watchlist.includes(id)?watchlist.filter(x=>x!==id):[...watchlist,id];
- saveLists();render();
-}
-function playVideo(id){
- const v=videos.find(x=>x.id===id);
- if(!v)return;
- $("player").style.display="block";
- $("playerTitle").textContent="▶ "+v.title;
- $("playerDesc").textContent=v.desc+" Playback depends on the external video source.";
- $("playerArea").innerHTML="";
- const video=document.createElement("video");
- video.controls=true;
- video.playsInline=true;
- video.preload="metadata";
- video.src=v.url;
- video.style.width="100%";
- $("playerArea").appendChild(video);
- $("player").scrollIntoView({behavior:"smooth"});
+function play(id){
+ let v=allItems().find(x=>x.id===id);if(!v)return;
+ let p=document.getElementById("player");
+ document.getElementById("playerBox").style.display="block";
+ document.getElementById("playerTitle").textContent=v.title;
+ document.getElementById("status").textContent="Loading video…";
+ p.pause();p.src=v.url;p.load();
+ document.getElementById("playerBox").scrollIntoView({behavior:"smooth"});
+ p.play().then(()=>document.getElementById("status").textContent="Playing: "+v.title)
+ .catch(()=>document.getElementById("status").textContent="Tap Play in the player. If it fails, the source may not offer playable video.");
 }
 function closePlayer(){
- const area=$("playerArea");
- area.querySelectorAll("video").forEach(v=>{v.pause();v.removeAttribute("src");v.load();});
- area.innerHTML="";
- $("player").style.display="none";
+ const p=document.getElementById("player");p.pause();p.removeAttribute("src");p.load();
+ document.getElementById("playerBox").style.display="none";
 }
-$("search").addEventListener("input",render);
-$("category").addEventListener("change",render);
-$("sort").addEventListener("change",render);
+document.getElementById("searchForm").addEventListener("submit",e=>{
+ e.preventDefault();q=document.getElementById("query").value.trim();render();
+ document.getElementById("videos").scrollIntoView({behavior:"smooth"});
+});
+document.getElementById("query").addEventListener("input",e=>{q=e.target.value.trim();render()});
+document.getElementById("nav").addEventListener("click",e=>{
+ const b=e.target.closest("[data-cat]");if(!b)return;
+ cat=b.dataset.cat;
+ document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b));
+ render();
+});
+async function searchArchive(){
+ const term=document.getElementById("query").value.trim();
+ if(!term){document.getElementById("archiveStatus").textContent="Type a movie title in the search box first.";return}
+ const status=document.getElementById("archiveStatus");
+ status.textContent="Searching Internet Archive…";
+ try{
+  const params=new URLSearchParams({
+   q:'mediatype:movies AND title:('+term+')',
+   fl[]:"identifier,title",
+   rows:"16",
+   page:"1",
+   output:"json"
+  });
+  const response=await fetch("https://archive.org/advancedsearch.php?"+params.toString());
+  if(!response.ok)throw new Error("Search request failed");
+  const data=await response.json();
+  const docs=data.response?.docs||[];
+  const results=await Promise.all(docs.map(async d=>{
+   try{
+    const r=await fetch("https://archive.org/metadata/"+encodeURIComponent(d.identifier));
+    if(!r.ok)return null;
+    const meta=await r.json();
+    const files=meta.files||[];
+    const f=files.find(x=>/\.mp4$/i.test(x.name)&&Number(x.size||0)>0)
+      ||files.find(x=>/\.ogv$/i.test(x.name)&&Number(x.size||0)>0)
+      ||files.find(x=>/\.webm$/i.test(x.name)&&Number(x.size||0)>0);
+    if(!f)return null;
+    const url="https://archive.org/download/"+encodeURIComponent(d.identifier)+"/"+f.name.split("/").map(encodeURIComponent).join("/");
+    return {id:"arc_"+d.identifier,title:d.title||d.identifier,cat:"Movies",thumb:"https://archive.org/services/img/"+encodeURIComponent(d.identifier),url,archive:true};
+   }catch(e){return null}
+  }));
+  archiveItems=results.filter(Boolean);
+  cat="All";q=term;
+  document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x.dataset.cat==="All"));
+  render();
+  status.textContent=archiveItems.length?
+   "Found "+archiveItems.length+" items with a candidate video file. Check each item's rights and availability.":
+   "No playable MP4, OGV or WebM files found for this search. Try another title or browse the collection below.";
+ }catch(e){
+  status.textContent="Online search failed. Check your connection, or browse the Internet Archive collection link below.";
+ }
+}
+document.getElementById("archiveBtn").addEventListener("click",searchArchive);
 render();
 </script>
 </body>

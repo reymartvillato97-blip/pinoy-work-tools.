@@ -3,19 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>PINOY TOOLS | Free Online Calculators</title>
-
-  <meta name="description" content="Free Filipino calculators for salary, overtime, 13th month pay, savings and work hours.">
-  <meta name="application-name" content="PINOY TOOLS">
-  <meta name="theme-color" content="#166534">
-  <meta name="robots" content="index, follow">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="PINOY TOOLS | Free Online Calculators">
-  <meta property="og:description" content="Free calculators for Filipino workers, job seekers and everyday life.">
+  <meta name="theme-color" content="#0d6efd">
+  <meta name="description" content="Free online tools for Filipino workers, job seekers, salary calculations, overtime, 13th month pay, savings and work hours.">
 
   <link rel="manifest" href="/pinoy-work-tools./manifest.json">
+  <link rel="icon" href="/pinoy-work-tools./icon-192.png" type="image/png">
+
+  <title>PINOY TOOLS | Free Online Calculators</title>
 
   <style>
     * {
@@ -24,133 +18,123 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f1f5f9;
-      color: #172033;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f6fb;
+      color: #202938;
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(135deg, #064e3b, #16a34a);
+      background: #0d6efd;
       color: white;
+      padding: 28px 16px;
       text-align: center;
-      padding: 30px 16px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 30px;
+      letter-spacing: 1px;
     }
 
     header p {
-      margin: 10px 0 0;
+      margin: 8px 0 0;
     }
 
-    .container {
-      max-width: 760px;
-      margin: 22px auto;
-      padding: 0 14px;
+    main {
+      max-width: 1000px;
+      margin: 25px auto;
+      padding: 0 15px;
     }
 
-    .tabs {
+    .intro {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .tools {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 9px;
-      margin-bottom: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
     }
 
-    .tab {
-      padding: 13px 7px;
-      border: 0;
-      border-radius: 10px;
+    .card {
       background: white;
-      color: #166534;
-      font-weight: bold;
-      cursor: pointer;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
     }
 
-    .tab.active {
-      background: #166534;
-      color: white;
-    }
-
-    .panel {
-      background: white;
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 4px 16px #0000000c;
-    }
-
-    .panel h2 {
+    .card h2 {
       margin-top: 0;
+      color: #0d6efd;
+      font-size: 21px;
     }
 
     label {
       display: block;
-      font-size: 14px;
+      margin-top: 12px;
       font-weight: bold;
-      margin: 14px 0 6px;
+      font-size: 14px;
     }
 
     input {
+      display: block;
       width: 100%;
       padding: 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 9px;
+      margin-top: 5px;
+      border: 1px solid #ccd3df;
+      border-radius: 8px;
       font-size: 16px;
+      background: white;
+      color: #202938;
     }
 
-    .action {
+    button {
       width: 100%;
-      padding: 13px;
-      margin-top: 18px;
-      background: #15803d;
+      padding: 12px;
+      margin-top: 17px;
+      background: #0d6efd;
       color: white;
-      border: 0;
-      border-radius: 9px;
+      border: none;
+      border-radius: 8px;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    .action:hover {
-      background: #166534;
+    button:active {
+      transform: scale(0.99);
     }
 
     .result {
-      margin-top: 16px;
-      padding: 15px;
-      border-radius: 10px;
-      background: #dcfce7;
-      color: #14532d;
-      line-height: 1.8;
+      margin-top: 15px;
+      padding: 12px;
+      background: #eaf2ff;
+      border-radius: 8px;
       overflow-wrap: anywhere;
     }
 
-    .hidden {
-      display: none;
+    .result strong {
+      color: #084298;
+      font-size: 19px;
     }
 
     .note {
-      font-size: 13px;
-      color: #64748b;
-      line-height: 1.5;
+      font-size: 12px;
+      color: #667085;
     }
 
     footer {
       text-align: center;
-      padding: 25px 12px;
-      color: #64748b;
-      font-size: 13px;
+      padding: 25px 15px;
+      margin-top: 30px;
+      background: #e7edf6;
+      color: #445066;
     }
 
-    @media (min-width: 600px) {
-      .tabs {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .panel {
-        padding: 28px;
-      }
+    footer a {
+      color: #0d6efd;
     }
   </style>
 </head>
@@ -158,233 +142,242 @@
 <body>
   <header>
     <h1>🇵🇭 PINOY TOOLS</h1>
-    <p>Free calculators for everyday Filipino life</p>
+    <p>Free Online Calculators for Filipino Workers</p>
   </header>
 
-  <main class="container">
-    <div class="tabs">
-      <button type="button" class="tab active"
-        onclick="showTab('salary', this)">💵 Salary</button>
-
-      <button type="button" class="tab"
-        onclick="showTab('thirteen', this)">🎁 13th Month</button>
-
-      <button type="button" class="tab"
-        onclick="showTab('savings', this)">🐷 Savings</button>
-
-      <button type="button" class="tab"
-        onclick="showTab('hours', this)">⏰ Work Hours</button>
+  <main>
+    <div class="intro">
+      <h2>Simple Tools for Everyday Life</h2>
+      <p>Calculate your salary, 13th month pay, savings, and working hours.</p>
     </div>
 
-    <section class="panel" id="salary">
-      <h2>Salary Calculator</h2>
-      <p class="note">
-        Estimate your pay using daily rate, days worked, overtime and deductions.
-      </p>
+    <div class="tools">
 
-      <label for="daily">Daily Rate (₱)</label>
-      <input id="daily" type="number" value="540" min="0" step="0.01">
+      <!-- SALARY CALCULATOR -->
+      <section class="card">
+        <h2>💰 Salary Calculator</h2>
 
-      <label for="days">Days Worked</label>
-      <input id="days" type="number" value="13" min="0" step="1">
+        <label for="daily">Daily Rate (₱)</label>
+        <input id="daily" type="number" min="0" step="0.01" value="540">
 
-      <label for="otHours">OT Hours</label>
-      <input id="otHours" type="number" value="0" min="0" step="0.25">
+        <label for="days">Days Worked</label>
+        <input id="days" type="number" min="0" step="1" value="13">
 
-      <label for="otRate">OT Rate per Hour (₱)</label>
-      <input id="otRate" type="number" value="84" min="0" step="0.01">
+        <label for="otHours">Overtime Hours</label>
+        <input id="otHours" type="number" min="0" step="0.5" value="0">
 
-      <label for="deduct">Total Deductions (₱)</label>
-      <input id="deduct" type="number" value="0" min="0" step="0.01">
+        <label for="otRate">OT Rate per Hour (₱)</label>
+        <input id="otRate" type="number" min="0" step="0.01" value="84">
 
-      <button type="button" class="action" onclick="calcSalary()">
-        Calculate Salary
-      </button>
+        <button type="button" onclick="calculateSalary()">Calculate Salary</button>
 
-      <div class="result hidden" id="salaryResult" aria-live="polite"></div>
-    </section>
+        <div class="result" id="salaryResult" aria-live="polite">
+          Your result will appear here.
+        </div>
+        <p class="note">Estimate only. Deductions, night differential, holiday pay, and other premiums are not included.</p>
+      </section>
 
-    <section class="panel hidden" id="thirteen">
-      <h2>13th Month Pay Calculator</h2>
-      <p class="note">
-        Basic formula: total qualifying basic salary earned during the calendar
-        year divided by 12. Overtime pay is generally excluded.
-      </p>
+      <!-- 13TH MONTH CALCULATOR -->
+      <section class="card">
+        <h2>🎁 13th Month Pay</h2>
 
-      <label for="basicYear">Total Basic Salary Earned This Year (₱)</label>
-      <input id="basicYear" type="number" min="0" step="0.01"
-        placeholder="Enter total basic salary">
+        <label for="monthlyBasic">Monthly Basic Salary (₱)</label>
+        <input id="monthlyBasic" type="number" min="0" step="0.01" value="14040">
 
-      <button type="button" class="action" onclick="calcThirteen()">
-        Calculate 13th Month
-      </button>
+        <label for="monthsWorked">Months Worked in the Year</label>
+        <input id="monthsWorked" type="number" min="0" max="12" step="0.5" value="6">
 
-      <div class="result hidden" id="thirteenResult" aria-live="polite"></div>
-    </section>
+        <button type="button" onclick="calculate13th()">Calculate 13th Month</button>
 
-    <section class="panel hidden" id="savings">
-      <h2>Savings Planner</h2>
+        <div class="result" id="thirteenthResult" aria-live="polite">
+          Your result will appear here.
+        </div>
+        <p class="note">Estimate assumes a constant monthly basic salary. Actual entitlement depends on basic salary earned and applicable rules.</p>
+      </section>
 
-      <label for="saved">Current Savings (₱)</label>
-      <input id="saved" type="number" value="0" min="0" step="0.01">
+      <!-- SAVINGS CALCULATOR -->
+      <section class="card">
+        <h2>🏦 Savings Calculator</h2>
 
-      <label for="perPayday">Amount to Save Every Payday (₱)</label>
-      <input id="perPayday" type="number" value="4000" min="0" step="0.01">
+        <label for="startingSavings">Starting Savings (₱)</label>
+        <input id="startingSavings" type="number" min="0" step="0.01" value="0">
 
-      <label for="paydays">Number of Paydays</label>
-      <input id="paydays" type="number" value="12" min="0" step="1">
+        <label for="monthlySavings">Savings per Month (₱)</label>
+        <input id="monthlySavings" type="number" min="0" step="0.01" value="5000">
 
-      <label for="goal">Savings Goal (₱)</label>
-      <input id="goal" type="number" value="50000" min="0" step="0.01">
+        <label for="savingMonths">Number of Months</label>
+        <input id="savingMonths" type="number" min="0" step="1" value="12">
 
-      <button type="button" class="action" onclick="calcSavings()">
-        Calculate Savings
-      </button>
+        <button type="button" onclick="calculateSavings()">Calculate Savings</button>
 
-      <div class="result hidden" id="savingsResult" aria-live="polite"></div>
-    </section>
+        <div class="result" id="savingsResult" aria-live="polite">
+          Your result will appear here.
+        </div>
+        <p class="note">Does not include bank interest, fees, or withdrawals.</p>
+      </section>
 
-    <section class="panel hidden" id="hours">
-      <h2>Work Hours Calculator</h2>
+      <!-- WORK HOURS CALCULATOR -->
+      <section class="card">
+        <h2>⏰ Work Hours Calculator</h2>
 
-      <label for="start">Start Time</label>
-      <input id="start" type="time" value="15:00">
+        <label for="startTime">Time In</label>
+        <input id="startTime" type="time" value="15:00">
 
-      <label for="end">End Time</label>
-      <input id="end" type="time" value="03:00">
+        <label for="endTime">Time Out</label>
+        <input id="endTime" type="time" value="03:00">
 
-      <label for="breakMins">Total Break Time (minutes)</label>
-      <input id="breakMins" type="number" value="90" min="0" step="1">
+        <label for="breakMinutes">Total Break (Minutes)</label>
+        <input id="breakMinutes" type="number" min="0" step="1" value="90">
 
-      <button type="button" class="action" onclick="calcHours()">
-        Calculate Work Hours
-      </button>
+        <button type="button" onclick="calculateHours()">Calculate Work Hours</button>
 
-      <div class="result hidden" id="hoursResult" aria-live="polite"></div>
-    </section>
+        <div class="result" id="hoursResult" aria-live="polite">
+          Your result will appear here.
+        </div>
+        <p class="note">If time out is earlier than time in, the calculator assumes the shift ends the next day. Overtime depends on your normal scheduled hours and local rules.</p>
+      </section>
+
+    </div>
   </main>
 
   <footer>
-    <p>Created by <strong>Reymart Villato</strong></p>
-    <p>© 2026 PINOY TOOLS · Free online calculators</p>
+    <p><strong>Created by Reymart Villato</strong></p>
+    <p>Free online tools made for Filipino workers.</p>
+    <p><a href="/pinoy-work-tools./manifest.json">App Manifest</a></p>
+    <p>© <span id="year"></span> PINOY TOOLS. All rights reserved.</p>
   </footer>
 
   <script>
-    function num(id) {
-      const value = Number(document.getElementById(id).value);
-      return Number.isFinite(value) ? Math.max(0, value) : 0;
-    }
+    "use strict";
 
-    function money(n) {
-      return '₱' + n.toLocaleString('en-PH', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      });
-    }
+    const peso = (amount) =>
+      new Intl.NumberFormat("en-PH", {
+        style: "currency",
+        currency: "PHP"
+      }).format(amount);
 
-    function showResult(id, html) {
-      const el = document.getElementById(id);
-      el.innerHTML = html;
-      el.classList.remove('hidden');
-    }
+    const numberValue = (id) =>
+      Number(document.getElementById(id).value);
 
-    function showTab(id, button) {
-      document.querySelectorAll('.panel').forEach(panel => {
-        panel.classList.add('hidden');
-      });
+    const showResult = (id, message) => {
+      document.getElementById(id).textContent = message;
+    };
 
-      document.getElementById(id).classList.remove('hidden');
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-      document.querySelectorAll('.tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
+    function calculateSalary() {
+      const daily = numberValue("daily");
+      const days = numberValue("days");
+      const otHours = numberValue("otHours");
+      const otRate = numberValue("otRate");
 
-      button.classList.add('active');
-    }
-
-    function calcSalary() {
-      const basic = num('daily') * num('days');
-      const ot = num('otHours') * num('otRate');
-      const deductions = num('deduct');
-      const takeHome = Math.max(0, basic + ot - deductions);
-
-      showResult('salaryResult',
-        'Basic Pay: <strong>' + money(basic) + '</strong><br>' +
-        'Overtime Pay: <strong>' + money(ot) + '</strong><br>' +
-        'Deductions: <strong>' + money(deductions) + '</strong><hr>' +
-        'Estimated Take-Home: <strong>' + money(takeHome) + '</strong>' +
-        '<p class="note">Estimate only. Night differential, holiday pay, ' +
-        'rest-day pay and other adjustments are not included unless ' +
-        'accounted for in your inputs.</p>'
-      );
-    }
-
-    function calcThirteen() {
-      const basic = num('basicYear');
-
-      showResult('thirteenResult',
-        'Estimated 13th Month Pay: <strong>' +
-        money(basic / 12) + '</strong>' +
-        '<p class="note">Estimate based on the basic salary amount you ' +
-        'entered. Actual entitlement depends on qualifying basic salary ' +
-        'and applicable employment rules.</p>'
-      );
-    }
-
-    function calcSavings() {
-      const total = num('saved') +
-        num('perPayday') * num('paydays');
-      const goal = num('goal');
-
-      showResult('savingsResult',
-        'Projected Total Savings: <strong>' + money(total) + '</strong><br>' +
-        'Savings Goal: <strong>' + money(goal) + '</strong><br>' +
-        (total >= goal
-          ? '🎉 Goal reached!'
-          : 'Remaining to Goal: <strong>' + money(goal - total) + '</strong>')
-      );
-    }
-
-    function calcHours() {
-      const start = document.getElementById('start').value;
-      const end = document.getElementById('end').value;
-      const breaks = num('breakMins');
-
-      if (!start || !end) {
-        showResult('hoursResult', 'Please enter start and end time.');
+      if (
+        daily < 0 || days < 0 || otHours < 0 || otRate < 0 ||
+        ![daily, days, otHours, otRate].every(Number.isFinite)
+      ) {
+        showResult("salaryResult", "Please enter valid, non-negative numbers.");
         return;
       }
 
-      const toMinutes = time => {
-        const [hours, minutes] = time.split(':').map(Number);
-        return hours * 60 + minutes;
-      };
+      const regularPay = daily * days;
+      const overtimePay = otHours * otRate;
+      const total = regularPay + overtimePay;
 
-      const startMinutes = toMinutes(start);
-      const endMinutes = toMinutes(end);
+      showResult(
+        "salaryResult",
+        `Regular pay: ${peso(regularPay)} | Overtime: ${peso(overtimePay)} | Estimated gross pay: ${peso(total)}`
+      );
+    }
 
-      let minutes = endMinutes - startMinutes;
+    function calculate13th() {
+      const monthly = numberValue("monthlyBasic");
+      const months = numberValue("monthsWorked");
 
-      if (minutes < 0) {
-        minutes += 1440;
-      }
-
-      if (breaks > minutes) {
-        showResult('hoursResult',
-          'Break time cannot exceed the total time at work.');
+      if (
+        monthly < 0 || months < 0 || months > 12 ||
+        ![monthly, months].every(Number.isFinite)
+      ) {
+        showResult("thirteenthResult", "Enter a valid salary and 0–12 months.");
         return;
       }
 
-      const paid = minutes - breaks;
+      const estimate = (monthly * months) / 12;
 
-      showResult('hoursResult',
-        'Total Time at Work: <strong>' +
-        (minutes / 60).toFixed(2) + ' hours</strong><br>' +
-        'Break Time: <strong>' +
-        (breaks / 60).toFixed(2) + ' hours</strong><br>' +
-        'Estimated Paid Work Hours: <strong>' +
-        (paid / 60).toFixed(2) + ' hours</strong>'
+      showResult(
+        "thirteenthResult",
+        `Estimated 13th month pay: ${peso(estimate)}`
       );
+    }
+
+    function calculateSavings() {
+      const starting = numberValue("startingSavings");
+      const monthly = numberValue("monthlySavings");
+      const months = numberValue("savingMonths");
+
+      if (
+        starting < 0 || monthly < 0 || months < 0 ||
+        ![starting, monthly, months].every(Number.isFinite)
+      ) {
+        showResult("savingsResult", "Please enter valid, non-negative numbers.");
+        return;
+      }
+
+      const total = starting + monthly * months;
+
+      showResult(
+        "savingsResult",
+        `Starting savings: ${peso(starting)} | New savings: ${peso(monthly * months)} | Total: ${peso(total)}`
+      );
+    }
+
+    function calculateHours() {
+      const start = document.getElementById("startTime").value;
+      const end = document.getElementById("endTime").value;
+      const breakMinutes = numberValue("breakMinutes");
+
+      if (!start || !end || !Number.isFinite(breakMinutes) || breakMinutes < 0) {
+        showResult("hoursResult", "Please enter valid times and break minutes.");
+        return;
+      }
+
+      const [startH, startM] = start.split(":").map(Number);
+      const [endH, endM] = end.split(":").map(Number);
+
+      const startTotal = startH * 60 + startM;
+      let endTotal = endH * 60 + endM;
+
+      if (endTotal < startTotal) {
+        endTotal += 24 * 60;
+      }
+
+      const elapsedMinutes = endTotal - startTotal;
+      const paidMinutes = elapsedMinutes - breakMinutes;
+
+      if (paidMinutes < 0) {
+        showResult("hoursResult", "Break time cannot exceed the shift duration.");
+        return;
+      }
+
+      const hours = paidMinutes / 60;
+      const wholeHours = Math.floor(hours);
+      const minutes = Math.round((hours - wholeHours) * 60);
+
+      showResult(
+        "hoursResult",
+        `Elapsed shift: ${(elapsedMinutes / 60).toFixed(2)} hours | Paid work time: ${wholeHours} hours ${minutes} minutes (${hours.toFixed(2)} hours)`
+      );
+    }
+
+    // Register the service worker for the GitHub Pages project path.
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register(
+          "/pinoy-work-tools./sw.js"
+        ).catch((error) => {
+          console.error("Service worker registration failed:", error);
+        });
+      });
     }
   </script>
 </body>

@@ -1,3 +1,4 @@
+
 {
   "id": "/pinoy-work-tools./",
   "name": "PINOY TOOLS",
@@ -22,6 +23,8 @@
       "type": "image/png",
       "purpose": "any"
     }
+  ],
+  "screenshots": [
     {
       "src": "/pinoy-work-tools./screenshot-mobile.png",
       "sizes": "540x720",

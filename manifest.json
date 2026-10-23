@@ -23,21 +23,5 @@
       "type": "image/png",
       "purpose": "any"
     }
-  ],
-  "screenshots": [
-    {
-      "src": "/pinoy-work-tools./screenshot-mobile.png",
-      "sizes": "540x720",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "PINOY TOOLS mobile home screen"
-    },
-    {
-      "src": "/pinoy-work-tools./screenshot-desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "PINOY TOOLS desktop home screen"
-    }
   ]
 }

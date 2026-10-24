@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reymartvillato97-blip.github.io/pinoy-work-tools./sitemap.xml
